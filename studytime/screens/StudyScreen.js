@@ -1,11 +1,11 @@
 import { View, Text } from "react-native";
 
-const AboutScreen = () => {
+const StudyScreen = () => {
     return (
         <View>
-            <Text>AboutScreen</Text>
+            <Text>StudyScreen</Text>
         </View>
     );
 };
 
-export default AboutScreen;
+export default StudyScreen;

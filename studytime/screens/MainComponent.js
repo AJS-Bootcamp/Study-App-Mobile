@@ -1,44 +1,50 @@
 import * as React from "react";
-import { View, StyleSheet, Dimensions, StatusBar } from "react-native";
+import { View, useWindowDimensions } from "react-native";
 import { TabView, SceneMap } from "react-native-tab-view";
+import HomeScreen from "./HomeScreen";
+import AboutScreen from "./AboutScreen";
+import StudyScreen from "./StudyScreen";
+import ContactScreen from "./ContactScreen";
 
 const FirstRoute = () => (
-  <View style={[styles.scene, { backgroundColor: "#ff4081" }]} />
+    <HomeScreen style={{ flex: 1, backgroundColor: "#ff4081" }} />
 );
+
 const SecondRoute = () => (
-  <View style={[styles.scene, { backgroundColor: "#673ab7" }]} />
+    <StudyScreen style={{ flex: 1, backgroundColor: "#673ab7" }} />
+);
+const ThirdRoute = () => (
+    <AboutScreen style={{ flex: 1, backgroundColor: "#ff4081" }} />
 );
 
-export default class TabViewExample extends React.Component {
-  state = {
-    index: 0,
-    routes: [
-      { key: "first", title: "First" },
-      { key: "second", title: "Second" },
-    ],
-  };
+const FourthRoute = () => (
+    <ContactScreen style={{ flex: 1, backgroundColor: "#673ab7" }} />
+);
 
-  render() {
-    return (
-      <TabView
-        navigationState={this.state}
-        renderScene={SceneMap({
-          first: FirstRoute,
-          second: SecondRoute,
-        })}
-        onIndexChange={(index) => this.setState({ index })}
-        initialLayout={{ width: Dimensions.get("window").width }}
-        style={styles.container}
-      />
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: StatusBar.currentHeight,
-  },
-  scene: {
-    flex: 1,
-  },
+const renderScene = SceneMap({
+    first: FirstRoute,
+    second: SecondRoute,
+    third: ThirdRoute,
+    fourth: FourthRoute,
 });
+
+export default function TabViewMain() {
+    const layout = useWindowDimensions();
+
+    const [index, setIndex] = React.useState(0);
+    const [routes] = React.useState([
+        { key: "first", title: "Home" },
+        { key: "second", title: "Study" },
+        { key: "third", title: "About" },
+        { key: "fourth", title: "Contact" },
+    ]);
+
+    return (
+        <TabView
+            navigationState={{ index, routes }}
+            renderScene={renderScene}
+            onIndexChange={setIndex}
+            initialLayout={{ width: layout.width }}
+        />
+    );
+}
