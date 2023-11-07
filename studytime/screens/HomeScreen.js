@@ -1,17 +1,31 @@
-import { Text, ScrollView } from "react-native";
+import React from "react";
+import { Text, ScrollView, StyleSheet } from "react-native";
 
 import { useState } from "react";
+//Speedial with social media
 import { SpeedDial } from "react-native-elements";
 import { Linking } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
+import { LinearGradient } from "expo-linear-gradient";
+
 const HomeScreen = () => {
   const [open, setOpen] = useState(false);
+
+  //colors={["#446879", "#0e122c"]}
+
+  // "#008080" #09B4B7 #06466B #E5E8E7 #B3B5B7 #010114
   return (
-    <ScrollView>
+    <LinearGradient
+      colors={["#06466B", "#010114"]}
+      style={styles.container}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+    >
+      {/* <ScrollView> */}
       <Text
         style={{
-          color: "#5637DD",
+          color: "#FFFF00",
 
           fontSize: 40,
         }}
@@ -24,7 +38,7 @@ const HomeScreen = () => {
         openIcon={{ name: "close", color: "#fff" }}
         onOpen={() => setOpen(!open)}
         onClose={() => setOpen(!open)}
-        buttonStyle={{ backgroundColor: "#5637DD" }}
+        buttonStyle={{ backgroundColor: "#0ABAB5" }}
       >
         <SpeedDial.Action
           icon={<Icon name="facebook" size={20} color="white" />}
@@ -47,8 +61,17 @@ const HomeScreen = () => {
           buttonStyle={{ backgroundColor: "#333" }}
         ></SpeedDial.Action>
       </SpeedDial>
-    </ScrollView>
+      {/* </ScrollView> */}
+    </LinearGradient>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
 
 export default HomeScreen;

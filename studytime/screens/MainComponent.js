@@ -9,6 +9,7 @@ import StudyScreen from "./StudyScreen";
 import ContactScreen from "./ContactScreen";
 import logo from "../assets/img/lightAJS.png";
 import { Image } from "react-native";
+import { TabBar } from "react-native-tab-view";
 
 const FirstRoute = () => (
   <HomeScreen style={{ flex: 1, backgroundColor: "#ff4081" }} />
@@ -43,8 +44,6 @@ export default function TabViewMain() {
     { key: "fourth", title: "Contact" },
   ]);
 
-  // ...
-
   return (
     <View
       style={{
@@ -61,18 +60,29 @@ export default function TabViewMain() {
         renderScene={renderScene}
         onIndexChange={setIndex}
         initialLayout={{ width: layout.width }}
+        renderTabBar={(props) => (
+          <TabBar
+            {...props}
+            indicatorStyle={{
+              backgroundColor: "#FFFF00",
+            }}
+            style={{ backgroundColor: "#008080" }}
+          />
+        )}
       />
     </View>
   );
 }
-
+// "#008080" #09B4B7 #06466B #E5E8E7 #B3B5B7 #010114
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
   },
   header: {
-    height: 50,
-    backgroundColor: "#f5f5f5",
+    height: 60,
+    backgroundColor: "#0ABAB5",
     flexDirection: "row",
     alignItems: "center",
     paddingLeft: 10,
@@ -80,5 +90,6 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 20,
     fontWeight: "bold",
+    fontColor: "#010114",
   },
 });

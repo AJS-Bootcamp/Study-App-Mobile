@@ -24,6 +24,7 @@
     "expo-constants": "~14.0.2",
     "expo-image-manipulator": "~11.0.0",
     "expo-image-picker": "~14.0.2",
+    "expo-linear-gradient": "~12.0.1",
     "expo-mail-composer": "~12.0.0",
     "expo-media-library": "~15.0.0",
     "expo-notifications": "~0.17.0",
@@ -31,9 +32,10 @@
     "expo-status-bar": "~1.4.2",
     "react": "18.1.0",
     "react-native": "0.70.5",
-    "react-native-animatable": "^1.3.3",
+    "react-native-animatable": "^1.4.0",
     "react-native-elements": "^3.4.3",
     "react-native-gesture-handler": "~2.8.0",
+    "react-native-linear-gradient": "^2.8.3",
     "react-native-pager-view": "6.0.1",
     "react-native-reanimated": "~2.12.0",
     "react-native-safe-area-context": "^3.4.1",
@@ -42,7 +44,8 @@
     "react-native-tab-view": "^2.16.0",
     "react-redux": "8.0.5",
     "redux": "4.2.1",
-    "redux-persist": "^6.0.0"
+    "redux-persist": "^6.0.0",
+    "typescript": "^4.6.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
