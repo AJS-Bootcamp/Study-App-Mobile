@@ -3,11 +3,11 @@ import Constants from "expo-constants";
 import * as React from "react";
 
 import {
-    View,
-    useWindowDimensions,
-    Text,
-    StyleSheet,
-    Image,
+  View,
+  useWindowDimensions,
+  Text,
+  StyleSheet,
+  Image,
 } from "react-native";
 
 import { TabView, SceneMap } from "react-native-tab-view";
