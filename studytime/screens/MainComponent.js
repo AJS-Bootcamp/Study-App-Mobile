@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View, useWindowDimensions } from "react-native";
+import { Image, View, Text, useWindowDimensions } from "react-native";
 import { TabView, SceneMap } from "react-native-tab-view";
 import HomeScreen from "./HomeScreen";
 import AboutScreen from "./AboutScreen";
@@ -40,11 +40,32 @@ export default function TabViewMain() {
     ]);
 
     return (
-        <TabView
-            navigationState={{ index, routes }}
-            renderScene={renderScene}
-            onIndexChange={setIndex}
-            initialLayout={{ width: layout.width }}
-        />
+        <>
+            <View
+                style={{
+                    flexDirection: "row",
+                    justifyContent: "flex-start",
+                    paddingTop: 40,
+                }}
+            >
+                <Image
+                    source={require("../assets/img/lightAJS.png")}
+                    style={{ width: 50, height: 50, alignSelf: "flex-end" }}
+                />
+                <Text
+                    style={{
+                        fontSize: 40,
+                    }}
+                >
+                    StudyTime
+                </Text>
+            </View>
+            <TabView
+                navigationState={{ index, routes }}
+                renderScene={renderScene}
+                onIndexChange={setIndex}
+                initialLayout={{ width: layout.width }}
+            />
+        </>
     );
 }
