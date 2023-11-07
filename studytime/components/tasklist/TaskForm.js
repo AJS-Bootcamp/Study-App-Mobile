@@ -22,9 +22,10 @@ const TaskForm = ({ addItem }) => {
             }}
         >
             <TextInput
-                style={{ fontSize: 20, marginLeft: 20 }}
+                style={{ fontSize: 20, marginLeft: 20, color: "white" }}
                 editable
                 placeholder="Enter Study Task Here..."
+                placeholderTextColor="white"
                 value={task}
                 onChangeText={(task) => setTask(task)}
             />
@@ -39,7 +40,7 @@ const TaskForm = ({ addItem }) => {
             <Button
                 onPress={() => handleSubmit()}
                 title="Add Item"
-                color="#139A43"
+                color="#0ABAB5"
                 accessibilityLabel="Tap me to add an item to your list"
                 style={{}}
             />
