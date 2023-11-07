@@ -33,21 +33,22 @@ function Item({ item, removeItem, completeTask }) {
                     alignSelf: "center",
                     textAlign: "center",
                     fontSize: 20,
+                    color: "white",
                     textDecorationLine: item.complete ? "line-through" : "none",
                 }}
             >
                 {item.task}
             </Text>
             <Button
-                title="Complete Task"
+                title="Completed"
                 active={item.complete}
                 onPress={() => completeTask(item.id)}
-                color="#139A43"
+                color="#0ABAB5"
             />
             <Button
-                title="Remove Task"
+                title="Remove"
                 onPress={() => removeItem(item.id)}
-                color="#d11a2a"
+                color="#DD1C1A"
             />
         </View>
     );
