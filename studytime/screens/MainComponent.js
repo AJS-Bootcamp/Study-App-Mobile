@@ -2,7 +2,13 @@ import { Platform } from "react-native";
 import Constants from "expo-constants";
 import * as React from "react";
 
-import { View, useWindowDimensions, Text, StyleSheet, Image } from "react-native";
+import {
+  View,
+  useWindowDimensions,
+  Text,
+  StyleSheet,
+  Image,
+} from "react-native";
 
 import { TabView, SceneMap } from "react-native-tab-view";
 import HomeScreen from "./HomeScreen";
@@ -10,7 +16,6 @@ import AboutScreen from "./AboutScreen";
 import StudyScreen from "./StudyScreen";
 import ContactScreen from "./ContactScreen";
 import logo from "../assets/img/lightAJS.png";
-import { Image } from "react-native";
 import { TabBar } from "react-native-tab-view";
 
 const FirstRoute = () => (
