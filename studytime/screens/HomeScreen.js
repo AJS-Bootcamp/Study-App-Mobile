@@ -61,20 +61,6 @@ const HomeScreen = () => {
     setCompletionPercentage(+percentage.toFixed(2));
   }, [items]); // Recalculate percentage whenever items change
 
-
-    const completeTask = (itemId) => {
-        const updatedItems = items.map((item) =>
-            item.id === itemId ? { ...item, complete: !item.complete } : item
-        );
-        // Update the items state with the updated completion status
-        setItems(updatedItems);
-    };
-
-    useEffect(() => {
-        const percentage = calculateCompletionPercentage(items);
-        setCompletionPercentage(+percentage.toFixed(2));
-    }, [items]); // Recalculate percentage whenever items change
-
     return (
         <LinearGradient
             colors={["#06466B", "#010114"]}
