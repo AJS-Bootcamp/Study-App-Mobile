@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { v4 as uuid } from "uuid";
 import TaskForm from "../components/tasklist/TaskForm";
 import TaskList from "../components/tasklist/TaskList";
@@ -6,7 +6,13 @@ import TaskList from "../components/tasklist/TaskList";
 import * as Progress from "react-native-progress";
 
 import React from "react";
-import { Text, ScrollView, StyleSheet, View } from "react-native";
+import {
+    RefreshControl,
+    Text,
+    ScrollView,
+    StyleSheet,
+    View,
+} from "react-native";
 
 //Speedial with social media
 import { SpeedDial } from "react-native-elements";
@@ -15,51 +21,58 @@ import Icon from "react-native-vector-icons/FontAwesome";
 
 import { LinearGradient } from "expo-linear-gradient";
 
-const HomeScreen = () => {
+const wait = (timeout) => {
+    return new Promise((resolve) => setTimeout(resolve, timeout));
+};
 
+const HomeScreen = () => {
     const [open, setOpen] = useState(false);
 
     //colors={["#446879", "#0e122c"]}
 
-
     // "#008080" #09B4B7 #06466B #E5E8E7 #B3B5B7 #010114
 
+    const [items, setItems] = useState([]);
+    const [completionPercentage, setCompletionPercentage] = useState(0);
 
+    const [refreshing, setRefreshing] = useState(false);
 
-  const [items, setItems] = useState([]);
-  const [completionPercentage, setCompletionPercentage] = useState(0);
+    const onRefresh = useCallback(() => {
+        setRefreshing(true);
+        wait(2000).then(() => setRefreshing(false));
+    }, []);
 
-  function handleAddItem(item) {
-    const newItem = { id: uuid(), task: item, complete: false };
-    setItems((items) => [...items, newItem]);
-  }
-
-  function handleRemoveItem(itemId) {
-    setItems(items.filter((item) => item.id !== itemId));
-  }
-
-  function calculateCompletionPercentage(items) {
-    const totalTasks = items.length;
-    if (totalTasks === 0) {
-      return 0;
+    function handleAddItem(item) {
+        const newItem = { id: uuid(), task: item, complete: false };
+        setItems((items) => [...items, newItem]);
     }
-    const completedTasks = items.filter((item) => item.complete).length;
-    const percentage = (completedTasks / totalTasks) * 100;
-    return percentage;
-  }
 
-  const completeTask = (itemId) => {
-    const updatedItems = items.map((item) =>
-      item.id === itemId ? { ...item, complete: !item.complete } : item
-    );
-    // Update the items state with the updated completion status
-    setItems(updatedItems);
-  };
+    function handleRemoveItem(itemId) {
+        setItems(items.filter((item) => item.id !== itemId));
+    }
 
-  useEffect(() => {
-    const percentage = calculateCompletionPercentage(items);
-    setCompletionPercentage(+percentage.toFixed(2));
-  }, [items]); // Recalculate percentage whenever items change
+    function calculateCompletionPercentage(items) {
+        const totalTasks = items.length;
+        if (totalTasks === 0) {
+            return 0;
+        }
+        const completedTasks = items.filter((item) => item.complete).length;
+        const percentage = (completedTasks / totalTasks) * 100;
+        return percentage;
+    }
+
+    const completeTask = (itemId) => {
+        const updatedItems = items.map((item) =>
+            item.id === itemId ? { ...item, complete: !item.complete } : item
+        );
+        // Update the items state with the updated completion status
+        setItems(updatedItems);
+    };
+
+    useEffect(() => {
+        const percentage = calculateCompletionPercentage(items);
+        setCompletionPercentage(+percentage.toFixed(2));
+    }, [items]); // Recalculate percentage whenever items change
 
     return (
         <LinearGradient
@@ -68,7 +81,14 @@ const HomeScreen = () => {
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 1 }}
         >
-            <ScrollView>
+            <ScrollView
+                refreshControl={
+                    <RefreshControl
+                        refreshing={refreshing}
+                        onRefresh={onRefresh}
+                    />
+                }
+            >
                 <View style={{ flex: 4 }}>
                     <Text
                         style={{
@@ -96,7 +116,7 @@ const HomeScreen = () => {
                         progress={completionPercentage / 100}
                         width={350}
                         height={15}
-                        style={{ alignSelf: "center", marginBottom: 20 }}
+                        style={{ alignSelf: "center", marginBottom: 25 }}
                     />
                     <TaskList
                         items={items}
@@ -139,7 +159,6 @@ const HomeScreen = () => {
             </SpeedDial>
         </LinearGradient>
     );
-
 };
 
 const styles = StyleSheet.create({

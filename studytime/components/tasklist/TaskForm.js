@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
     formContainer: {
         flexDirection: "row",
         justifyContent: "center",
+        marginTop: 10,
         marginBottom: 20,
     },
     textInput: {
