@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, Text, View } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
+import { Button, Icon } from "react-native-elements";
 
 const TaskList = ({ items, removeItem, completeTask }) => {
     return (
@@ -18,15 +19,7 @@ const TaskList = ({ items, removeItem, completeTask }) => {
 
 function Item({ item, removeItem, completeTask }) {
     return (
-        <View
-            style={{
-                flexDirection: "row",
-                justifyContent: "flex-end",
-                alignItems: "center",
-                marginVertical: 5,
-                marginHorizontal: 15,
-            }}
-        >
+        <View style={styles.itemContainer}>
             <Text
                 style={{
                     flex: 1,
@@ -43,15 +36,40 @@ function Item({ item, removeItem, completeTask }) {
                 title="Completed"
                 active={item.complete}
                 onPress={() => completeTask(item.id)}
-                color="#0ABAB5"
+                icon={
+                    <Icon
+                        name="check-circle"
+                        type="font-awesome"
+                        color="#FFF"
+                        iconStyle={{ marginRight: 10 }}
+                    />
+                }
+                buttonStyle={{ backgroundColor: "#09B4B7" }}
             />
             <Button
-                title="Remove"
                 onPress={() => removeItem(item.id)}
-                color="#DD1C1A"
+                icon={
+                    <Icon
+                        name="trash"
+                        type="font-awesome"
+                        color="#FFF"
+                        iconStyle={{ paddingHorizontal: 15 }}
+                    />
+                }
+                buttonStyle={{ backgroundColor: "#010114", marginLeft: 10 }}
             />
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    itemContainer: {
+        flexDirection: "row",
+        justifyContent: "flex-end",
+        alignItems: "center",
+        marginVertical: 10,
+        marginHorizontal: 15,
+    },
+});
 
 export default TaskList;
