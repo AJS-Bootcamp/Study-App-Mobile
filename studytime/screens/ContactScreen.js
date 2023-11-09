@@ -9,7 +9,7 @@ const ContactScreen = () => {
 
   return (
     <ScrollView>
-      <Animatable.View animation="fadeInDown" duration={5000} delay={1000}>
+      <Animatable.View animation="fadeInDown" duration={8000} delay={1000}>
         <Card wrapperStyle={{ margin: 20 }}>
           <Card.Title>Contact us</Card.Title>
           <Card.Divider></Card.Divider>
@@ -25,7 +25,7 @@ const ContactScreen = () => {
             type="outline"
             onPress={() => setButtonTitle("Thank you")}
             buttonStyle={styles.button}
-  titleStyle={styles.text}
+            titleStyle={styles.text}
           />
         </Card>
       </Animatable.View>

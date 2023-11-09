@@ -5,6 +5,7 @@ import * as Animatable from "react-native-animatable";
 import { LinearGradient } from "expo-linear-gradient";
 
 const AboutScreen = () => {
+
     return (
         <LinearGradient
             colors={["#06466B", "#010114"]}
@@ -15,7 +16,7 @@ const AboutScreen = () => {
             <ScrollView>
                 <Animatable.View
                     animation="fadeInDown"
-                    duration={5000}
+                    duration={8000}
                     delay={1000}
                 >
                     <Card wrapperStyle={{ margin: 20 }}>
@@ -23,6 +24,7 @@ const AboutScreen = () => {
                             About us
                         </Card.Title>
                         <Card.Divider></Card.Divider>
+
 
                         <Card.Image
                             source={require("../assets/img/study2.png")}
