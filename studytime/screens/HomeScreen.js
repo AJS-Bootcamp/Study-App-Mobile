@@ -112,7 +112,7 @@ const HomeScreen = () => {
             width={350}
             height={15}
             style={{ alignSelf: "center", marginBottom: 25 }}
-            color="#FDE74C"
+            color="#FFFF00"
           />
           <TaskList
             items={items}
