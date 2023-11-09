@@ -1,22 +1,21 @@
-import { Platform } from "react-native";
 import Constants from "expo-constants";
 import * as React from "react";
 
 import {
-  View,
-  useWindowDimensions,
-  Text,
-  StyleSheet,
-  Image,
+    View,
+    useWindowDimensions,
+    Text,
+    StyleSheet,
+    Image,
+    Platform,
 } from "react-native";
-
-import { TabView, SceneMap } from "react-native-tab-view";
+import { Icon } from "react-native-elements";
+import { TabView, SceneMap, TabBar } from "react-native-tab-view";
 import HomeScreen from "./HomeScreen";
 import AboutScreen from "./AboutScreen";
 import StudyScreen from "./StudyScreen";
 import ContactScreen from "./ContactScreen";
 import logo from "../assets/img/lightAJS.png";
-import { TabBar } from "react-native-tab-view";
 
 const FirstRoute = () => (
     <HomeScreen style={{ flex: 1, backgroundColor: "#ff4081" }} />
@@ -60,8 +59,18 @@ export default function TabViewMain() {
             }}
         >
             <View style={styles.header}>
-                <Image source={logo} style={{ width: 50, height: 50 }} />
+                <Image
+                    source={logo}
+                    style={{ width: 50, height: 50, marginLeft: 10 }}
+                />
                 <Text style={styles.headerText}>Your Study App</Text>
+                <Icon
+                    name="user-circle"
+                    type="font-awesome"
+                    color="#FFF"
+                    size={28}
+                    iconStyle={{ marginRight: 10 }}
+                />
             </View>
             <TabView
                 navigationState={{ index, routes }}
@@ -93,10 +102,10 @@ const styles = StyleSheet.create({
         backgroundColor: "#0ABAB5",
         flexDirection: "row",
         alignItems: "center",
-        paddingLeft: 10,
+        justifyContent: "space-between",
     },
     headerText: {
-        fontSize: 20,
+        fontSize: 22,
         fontWeight: "bold",
         fontColor: "#010114",
     },
