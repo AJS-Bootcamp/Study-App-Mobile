@@ -19,20 +19,12 @@ import logo from "../assets/img/lightAJS.png";
 
 // "#008080" #09B4B7 #06466B #E5E8E7 #B3B5B7 #010114 #FFFF00
 
-const FirstRoute = () => (
-  <HomeScreen style={{ flex: 1, backgroundColor: "#ff4081" }} />
-);
+const FirstRoute = () => <HomeScreen />;
 
-const SecondRoute = () => (
-  <StudyScreen style={{ flex: 1, backgroundColor: "#673ab7" }} />
-);
-const ThirdRoute = () => (
-  <AboutScreen style={{ flex: 1, backgroundColor: "#ff4081" }} />
-);
+const SecondRoute = () => <StudyScreen />;
+const ThirdRoute = () => <AboutScreen />;
 
-const FourthRoute = () => (
-  <ContactScreen style={{ flex: 1, backgroundColor: "#673ab7" }} />
-);
+const FourthRoute = () => <ContactScreen />;
 
 const renderScene = SceneMap({
   first: FirstRoute,
@@ -49,7 +41,7 @@ export default function TabViewMain() {
     { key: "first", title: "Home" },
     { key: "second", title: "Study" },
     { key: "third", title: "About" },
-    { key: "fourth", title: "Contact" },
+    { key: "fourth", title: "Review" },
   ]);
 
   return (
