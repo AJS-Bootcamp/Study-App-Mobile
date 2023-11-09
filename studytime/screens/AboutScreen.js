@@ -6,7 +6,7 @@ import * as Animatable from "react-native-animatable";
 const AboutScreen = () => {
   return (
     <ScrollView>
-      <Animatable.View animation="fadeInDown" duration={5000} delay={1000}>
+      <Animatable.View animation="fadeInDown" duration={8000} delay={1000}>
         <Card wrapperStyle={{ margin: 20 }}>
           <Card.Title>About us</Card.Title>
           <Card.Divider></Card.Divider>
