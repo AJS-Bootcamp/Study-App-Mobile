@@ -1,5 +1,5 @@
-# PROJECT TITLE
-    Your Study App Mobile Version
+# YOUR STUDY APP MOBILE VERSION
+    
 
 ## ABOUT THE PROJECT
     Your Study app is a mobile app designed to help you organize and manage your study tasks efficiently. The app is built using React Native and provides features such as task tracking, progress monitoring, and social media shortcuts. This README file contains essential information to help you understand, install, and use the app effectively.
