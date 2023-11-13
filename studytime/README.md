@@ -41,6 +41,23 @@
     4. Run the app:
         npm start
 
+
+## TO VIEW THE APP 
+    Install and run the app on your Android Emulator.
+    1. Go to the .apk URL to download the .apk file. 
+        If you still have your bash terminal open, you can ctrl-click on the link to start the download. 
+    2. Drag the .apk file you downloaded onto your emulator's screen to install it. 
+    3. Once the installation is complete, you can go to your Home page (click the circle icon at the bottom) 
+        then drag up on the screen to see installed apps.
+    
+    MOBILE DEVICE
+    1. Open https://expo.dev/artifacts/eas/dtmrTbtwvfTvhDAzVZaDvt.aab on your Android device.
+    2. Download and install the app.
+    
+https://expo.dev/artifacts/eas/dtmrTbtwvfTvhDAzVZaDvt.aab
+
+
+    
+
 ## LICENSE
     This project is licensed under the MIT License - see the LICENSE.md file for details.
-
