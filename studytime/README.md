@@ -54,7 +54,7 @@
     1. Open https://expo.dev/artifacts/eas/dtmrTbtwvfTvhDAzVZaDvt.aab on your Android device.
     2. Download and install the app.
     
-https://expo.dev/artifacts/eas/rStG4gm8nUfjj3KnL16aNP.apk
+https://expo.dev/artifacts/eas/7KLfBgqoCHo5GfFRGdQyiJ.apk
 
 
     
